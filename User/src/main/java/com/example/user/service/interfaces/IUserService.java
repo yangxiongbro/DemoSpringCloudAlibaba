@@ -1,4 +1,4 @@
-package com.example.user.cs.interfaces;
+package com.example.user.service.interfaces;
 
 import com.baomidou.mybatisplus.extension.service.IService;
 import com.example.common.common.po.UserPO;

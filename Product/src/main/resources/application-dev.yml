@@ -1,23 +1,22 @@
-server:
-  servlet:
-    context-path: /product
-  port: 9000
-spring:
-  application:
-    name: Product
-  cloud:
-    nacos:
-      config:
-        server-addr: 127:0:0:1:8848
-
-  datasource:
-    url: jdbc:mysql://localhost:3306/shop_service?useSSL=false&serverTimezone=Hongkong&useUnicode=true&characterEncoding=utf-8&autoReconnect=true
-    username: root
-    password: 123456
-    driverClassName: com.mysql.cj.jdbc.Driver
-
-  management:
-  endpoints:
-    web:
-      exposure:
-        include: '*'
+#server:
+#  port: 9000
+#spring:
+#  cloud:
+#    nacos:
+#      discovery:
+#        server-addr: localhost:8848
+#
+#  datasource:
+#    url: jdbc:mysql://192.168.31.100:3306/spring_cloud_alibaba?useSSL=false&serverTimezone=Hongkong&useUnicode=true&characterEncoding=utf-8&autoReconnect=true
+#    username: root
+#    password: mysql
+#    driver-class-name: com.mysql.cj.jdbc.Driver
+#
+#mybatis-plus:
+#  mapper-location: classpath:mapper/*.xml
+#
+#  management:
+#  endpoints:
+#    web:
+#      exposure:
+#        include: '*'

@@ -1,9 +1,9 @@
-package com.example.order.cs;
+package com.example.order.service;
 
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.example.common.common.po.OrderPO;
 import com.example.common.common.vo.OrderVO;
-import com.example.order.cs.interfaces.IOrderService;
+import com.example.order.service.interfaces.IOrderService;
 import com.example.order.mapper.IOrderMapper;
 import org.springframework.beans.BeanUtils;
 import org.springframework.stereotype.Service;

@@ -1,0 +1,14 @@
+server:
+  port: 9010
+spring:
+  application:
+    name: User
+  cloud:
+    nacos:
+      discovery:
+        server-addr: localhost:8848
+      config:
+        server-addr: localhost:8848
+        file-extension: yaml
+        namespace: ed2069f3-cc54-4a62-b044-95061643ae84
+        group: PROVIDER_GROUP

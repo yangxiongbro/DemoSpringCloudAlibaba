@@ -1,8 +1,8 @@
-package com.example.user.cs;
+package com.example.user.service;
 
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.example.common.common.po.UserPO;
-import com.example.user.cs.interfaces.IUserService;
+import com.example.user.service.interfaces.IUserService;
 import com.example.user.mapper.IUserMapper;
 import org.springframework.stereotype.Service;
 
