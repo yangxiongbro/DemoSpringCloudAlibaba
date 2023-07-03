@@ -1,10 +1,10 @@
-#server:
-#  port: 9020
 #spring:
 #  cloud:
 #    nacos:
 #      discovery:
 #        server-addr: localhost:8848
+#        namespace: ed2069f3-cc54-4a62-b044-95061643ae84
+#        group: MY_GROUP
 #  mvc:
 #    pathmatch:
 #      matching-strategy: ANT_PATH_MATCHER
@@ -25,12 +25,15 @@
 #feign:
 #  client:
 #    config:
+#      # NONE: 不记录任何日志，是OpenFeign默认日志级别（性能最佳，适用于生产环境）。
+#      # BASIC: 仅记录请求方法、URL、响应状态码、执行时间（适用于生产环境追踪问题）。
+#      # HEADERS: 在记录BASIC级别的基础上，记录请求和响应的header头部信息。
+#      # FULL: 记录请求响应的header、body 和 元数据（适用于开发和测试环境定位问题）。
 #      Product:
 #        loggerLevel: full
 #      Order:
 #        loggerLevel: full
-## Feign日志只会对日志级别为debug的做出响应
 #logging:
 #  level:
-#    com.example.order.ms.ProductFeignService: debug
-#    com.example.order.ms.OrderFeignService: debug
+#    # Feign 调试日志是 debug 级别输出，SpringBoot 默认日志级别是 info，所以 Feign 的 debug 日志级别就不会输出
+#    com.example.order.ms: debug

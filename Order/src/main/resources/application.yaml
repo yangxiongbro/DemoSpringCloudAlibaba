@@ -1,0 +1,11 @@
+#server:
+#  port: 9020
+#  servlet:
+#    context-path: /order
+#spring:
+#  application:
+#    name: Order
+#  profiles:
+#    active: dev
+#mybatis-plus:
+#  mapper-location: classpath:mapper/*.xml

@@ -1,20 +1,15 @@
-#server:
-#  port: 9000
 #spring:
 #  cloud:
 #    nacos:
 #      discovery:
 #        server-addr: localhost:8848
-#
+#        namespace: ed2069f3-cc54-4a62-b044-95061643ae84
+#        group: MY_GROUP
 #  datasource:
 #    url: jdbc:mysql://192.168.31.100:3306/spring_cloud_alibaba?useSSL=false&serverTimezone=Hongkong&useUnicode=true&characterEncoding=utf-8&autoReconnect=true
 #    username: root
 #    password: mysql
 #    driver-class-name: com.mysql.cj.jdbc.Driver
-#
-#mybatis-plus:
-#  mapper-location: classpath:mapper/*.xml
-#
 #  management:
 #  endpoints:
 #    web:
