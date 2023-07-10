@@ -6,7 +6,7 @@ spring:
   cloud:
     nacos:
       config:
-        server-addr: localhost:8848
+        server-addr: 192.168.31.100:8848
         file-extension: yaml
         namespace: ed2069f3-cc54-4a62-b044-95061643ae84
         group: MY_GROUP
