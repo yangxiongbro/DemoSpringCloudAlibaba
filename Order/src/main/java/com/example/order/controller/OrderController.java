@@ -36,9 +36,13 @@ public class OrderController {
 //    @ApiImplicitParams({
 //            @ApiImplicitParam(name="id", value="订单id", dataType = "Long", paramType = "path")
 //    })
-    @SentinelResource("show")
     public OrderVO findById(@PathVariable("id") Long id) {
         return orderService.findById(id);
+    }
+
+    @GetMapping("/pay/{id}")
+    public Boolean pay(@PathVariable("id") Long id) {
+        return true;
     }
 
     @GetMapping("/buy")

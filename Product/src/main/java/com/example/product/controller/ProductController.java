@@ -29,9 +29,6 @@ public class ProductController {
         if(null != productPO){
             BeanUtils.copyProperties(productPO, productVO);
         }
-        int sleep = random.nextInt(5000);
-        System.out.println("sleep:"+sleep);
-        Thread.sleep(sleep);
         return productVO;
     }
 }
