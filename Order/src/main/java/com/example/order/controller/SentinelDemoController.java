@@ -1,8 +1,10 @@
 package com.example.order.controller;
 
 import com.alibaba.csp.sentinel.annotation.SentinelResource;
+import com.alibaba.csp.sentinel.slots.block.BlockException;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.Random;
@@ -111,4 +113,24 @@ public class SentinelDemoController {
         }
         return "熔断-异常数";
     }
+
+    /**
+     * 资源资源名：sentinelHotKey
+     * 参数索引：0
+     * 单机阈值：1
+     * 统计窗口时长：1
+     * 参数类型：int
+     * 参数值：1
+     * 限流阈值：2
+     */
+    @GetMapping("/hotKey")
+    @SentinelResource(value = "sentinelHotKey")
+    public Integer hotKey(Integer id){
+        return id;
+    }
+
+    public Integer handleSentinelHotKey(Integer id, BlockException exception){
+        return -1;
+    }
+
 }
