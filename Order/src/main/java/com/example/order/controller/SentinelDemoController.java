@@ -2,9 +2,9 @@ package com.example.order.controller;
 
 import com.alibaba.csp.sentinel.annotation.SentinelResource;
 import com.alibaba.csp.sentinel.slots.block.BlockException;
+import com.example.order.handle.block.SentinelResourceBlockHandlerClass;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.Random;
@@ -131,6 +131,29 @@ public class SentinelDemoController {
 
     public Integer handleSentinelHotKey(Integer id, BlockException exception){
         return -1;
+    }
+
+
+    /**
+     * 单机阈值：5
+     */
+    @GetMapping("/sentinelResource")
+    @SentinelResource(value = "sentinelResource", blockHandler = "sentinelResourceBlockHandler")
+    public String sentinelResource(Integer id){
+        return "sentinelResource,快速失败，id：" + id;
+    }
+    public String sentinelResourceBlockHandler(Integer id, BlockException blockException){
+        return "sentinelResource,被限流，id：" + id;
+    }
+
+
+    /**
+     * 单机阈值：5
+     */
+    @GetMapping("/sentinelResource2")
+    @SentinelResource(value = "sentinelResource2", blockHandlerClass = SentinelResourceBlockHandlerClass.class,blockHandler = "sentinelResource2BlockHandler")
+    public String sentinelResource2(Integer id){
+        return "sentinelResource2,快速失败，id：" + id;
     }
 
 }
