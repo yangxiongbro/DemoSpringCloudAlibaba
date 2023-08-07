@@ -21,4 +21,10 @@ public class UserFeignServiceFallbackHandler implements UserFeignService {
         System.out.println("UserFeignServiceFallback");
         return null;
     }
+
+    @Override
+    public UserVO pay(Long id, Double amount) {
+        System.out.println("UserFeignServiceFallback");
+        return null;
+    }
 }
