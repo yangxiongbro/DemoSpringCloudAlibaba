@@ -21,6 +21,7 @@ public class OrderService extends ServiceImpl<IOrderMapper, OrderPO> implements 
 
     @Autowired
     private ProductFeignService productFeignService;
+
     @Autowired
     private UserFeignService userFeignService;
 

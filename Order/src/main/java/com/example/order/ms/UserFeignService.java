@@ -4,17 +4,15 @@ import com.example.common.common.vo.user.UserVO;
 import com.example.order.handle.fallback.UserFeignServiceFallbackHandler;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.stereotype.Component;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 
 @Component
 @FeignClient(name = "User", path = "/user/user", fallback = UserFeignServiceFallbackHandler.class)
 public interface UserFeignService {
-    @GetMapping("/{id}")
-    UserVO findById(@PathVariable("id") Long id);
+    @GetMapping("/{uid}")
+    UserVO findById(@PathVariable("uid") Long uid);
 
-    @GetMapping("/pay")
-    UserVO pay(@RequestParam("id") Long id, @RequestParam("amount") Double amount);
+    @PostMapping("/pay/{uid}")
+    UserVO pay(@PathVariable("uid") Long uid, @RequestBody Double amount);
 
 }

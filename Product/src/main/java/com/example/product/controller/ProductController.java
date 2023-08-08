@@ -6,16 +6,17 @@ import com.example.product.service.interfaces.IProductService;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cloud.context.config.annotation.RefreshScope;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.validation.annotation.Validated;
+import org.springframework.web.bind.annotation.*;
 
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotNull;
 import java.util.Random;
 
 @RequestMapping("/product")
 @RestController
 @RefreshScope
+@Validated
 public class ProductController {
     @Autowired
     private IProductService productService;
@@ -32,5 +33,10 @@ public class ProductController {
         Thread.sleep(random.nextInt(1000));
         System.out.println(productVO);
         return productVO;
+    }
+
+    @PostMapping("checkout/{pid}")
+    public ProductVO checkout(@PathVariable("pid") @NotNull Long pid, @RequestBody @NotNull @Min(1) Integer number) {
+        return productService.checkout(pid,number);
     }
 }

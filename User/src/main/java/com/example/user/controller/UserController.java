@@ -6,14 +6,16 @@ import com.example.user.service.interfaces.IUserService;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cloud.context.config.annotation.RefreshScope;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.validation.annotation.Validated;
+import org.springframework.web.bind.annotation.*;
+
+import javax.validation.constraints.DecimalMin;
+import javax.validation.constraints.NotNull;
 
 @RequestMapping("/user")
 @RestController
 @RefreshScope
+@Validated
 public class UserController {
     @Autowired
     private IUserService userService;
@@ -27,5 +29,10 @@ public class UserController {
         }
         System.out.println(userVO);
         return userVO;
+    }
+
+    @PostMapping("/{uid}")
+    public UserVO pay(@PathVariable("uid") @NotNull Long uid, @RequestBody @NotNull @DecimalMin("0.01") Double amount){
+        return userService.pay(uid, amount);
     }
 }
