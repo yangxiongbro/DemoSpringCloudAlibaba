@@ -1,7 +1,7 @@
 package com.example.user.controller;
 
-import com.example.common.common.po.UserPO;
-import com.example.common.common.vo.UserVO;
+import com.example.common.common.po.user.UserPO;
+import com.example.common.common.vo.user.UserVO;
 import com.example.user.service.interfaces.IUserService;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;

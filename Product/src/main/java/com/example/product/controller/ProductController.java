@@ -1,7 +1,7 @@
 package com.example.product.controller;
 
-import com.example.common.common.po.ProductPO;
-import com.example.common.common.vo.ProductVO;
+import com.example.common.common.po.product.ProductPO;
+import com.example.common.common.vo.product.ProductVO;
 import com.example.product.service.interfaces.IProductService;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;

@@ -1,6 +1,6 @@
 package com.example.order.ms;
 
-import com.example.common.common.vo.UserVO;
+import com.example.common.common.vo.user.UserVO;
 import com.example.order.handle.fallback.UserFeignServiceFallbackHandler;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.stereotype.Component;

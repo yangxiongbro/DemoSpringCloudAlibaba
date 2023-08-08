@@ -28,6 +28,7 @@ CREATE TABLE `tb_order`  (
   `number` int NULL DEFAULT NULL COMMENT '数量',
   `price` decimal(10, 2) NULL DEFAULT NULL COMMENT '单价',
   `amount` decimal(10, 2) NULL DEFAULT NULL COMMENT '总额',
+  `status` varchar(50) NOT NULL COMMENT '状态',
   PRIMARY KEY (`id`) USING BTREE,
   INDEX `user_id`(`user_id` ASC) USING BTREE,
   INDEX `product_id`(`product_id` ASC) USING BTREE,

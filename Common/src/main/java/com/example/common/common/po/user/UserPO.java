@@ -1,4 +1,4 @@
-package com.example.common.common.po;
+package com.example.common.common.po.user;
 
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableId;

@@ -1,5 +1,6 @@
-package com.example.common.common.vo;
+package com.example.common.common.vo.order;
 
+import com.example.common.common.enums.order.OrderStatusEnum;
 import lombok.Data;
 
 @Data
@@ -10,4 +11,5 @@ public class OrderVO {
     private Integer number;
     private Double price;
     private Double amount;
+    private OrderStatusEnum status;
 }

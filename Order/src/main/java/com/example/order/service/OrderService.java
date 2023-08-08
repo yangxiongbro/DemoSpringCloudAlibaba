@@ -1,10 +1,13 @@
 package com.example.order.service;
 
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
-import com.example.common.common.po.OrderPO;
-import com.example.common.common.vo.OrderVO;
-import com.example.common.common.vo.ProductVO;
-import com.example.common.common.vo.UserVO;
+import com.example.common.common.enums.order.OrderStatusEnum;
+import com.example.common.common.params.order.OrderParams;
+import com.example.common.common.po.order.OrderPO;
+import com.example.common.common.vo.order.OrderVO;
+import com.example.common.common.vo.PairValueVO;
+import com.example.common.common.vo.product.ProductVO;
+import com.example.common.common.vo.user.UserVO;
 import com.example.order.ms.ProductFeignService;
 import com.example.order.ms.UserFeignService;
 import com.example.order.service.interfaces.IOrderService;
@@ -30,17 +33,19 @@ public class OrderService extends ServiceImpl<IOrderMapper, OrderPO> implements 
         return orderVO;
     }
 
-    public OrderVO order(Long uid,Long pid,Integer number){
-        ProductVO product=productFeignService.checkout(pid, number);
-        UserVO user=userFeignService.findById(uid);
+    public OrderVO order(OrderParams params){
+        Integer number = params.getNumber();
+        ProductVO product=productFeignService.checkout(params.getPid(), number);
+        UserVO user=userFeignService.findById(params.getUid());
         OrderVO orderVO = null;
-        if(null!=product&&null!=product.getId()&&null!=user&&null!=user.getId()&&null!=number) {
+        if(null!=product&&null!=user) {
             OrderPO orderPO =new OrderPO();
             orderPO.setAmount(number*product.getPrice());
             orderPO.setNumber(number);
             orderPO.setPrice(product.getPrice());
             orderPO.setProductId(product.getId());
             orderPO.setUserId(user.getId());
+            orderPO.setStatus(OrderStatusEnum.CREATED);
             save(orderPO);
             orderVO = findById(orderPO.getId());
         }
@@ -48,13 +53,13 @@ public class OrderService extends ServiceImpl<IOrderMapper, OrderPO> implements 
         return orderVO;
     }
 
-    public OrderVO pay(Long oid){
+    public PairValueVO<UserVO, OrderVO> pay(Long oid){
         OrderPO orderPO = getById(oid);
-        UserVO user=userFeignService.pay(orderPO.getUserId(), orderPO.getAmount());
-        // 更新订单状态
+        orderPO.setStatus(OrderStatusEnum.PAID);
         updateById(orderPO);
+        UserVO userVO=userFeignService.pay(orderPO.getUserId(), orderPO.getAmount());
         OrderVO orderVO = new OrderVO();
         BeanUtils.copyProperties(orderPO, orderVO);
-        return orderVO;
+        return new PairValueVO(userVO, orderVO);
     }
 }

@@ -1,6 +1,6 @@
 package com.example.order.ms;
 
-import com.example.common.common.vo.ProductVO;
+import com.example.common.common.vo.product.ProductVO;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.stereotype.Component;
 import org.springframework.web.bind.annotation.GetMapping;

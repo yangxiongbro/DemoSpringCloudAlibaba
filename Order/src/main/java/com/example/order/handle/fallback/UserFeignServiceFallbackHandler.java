@@ -1,6 +1,6 @@
 package com.example.order.handle.fallback;
 
-import com.example.common.common.vo.UserVO;
+import com.example.common.common.vo.user.UserVO;
 import com.example.order.ms.UserFeignService;
 import org.springframework.stereotype.Component;
 
