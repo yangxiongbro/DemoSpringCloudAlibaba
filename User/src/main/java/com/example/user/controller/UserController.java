@@ -31,7 +31,7 @@ public class UserController {
         return userVO;
     }
 
-    @PostMapping("/{uid}")
+    @PostMapping("/pay/{uid}")
     public UserVO pay(@PathVariable("uid") @NotNull Long uid, @RequestBody @NotNull @DecimalMin("0.01") Double amount){
         return userService.pay(uid, amount);
     }
