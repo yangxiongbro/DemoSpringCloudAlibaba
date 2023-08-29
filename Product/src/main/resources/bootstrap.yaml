@@ -10,3 +10,5 @@ spring:
         file-extension: yaml
         namespace: ed2069f3-cc54-4a62-b044-95061643ae84
         group: MY_GROUP
+        username: server
+        password: Senna&nacos-app@P1
