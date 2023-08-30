@@ -17,33 +17,33 @@ public class SentinelDemoController {
 
     @GetMapping("/flow/fast")
     public String flowFast(){
-        return "快速失败";
+        return "快速失败-正常访问";
     }
 
     @GetMapping("/flow/warmUp")
     public String flowWarmUp(){
-        return "Warm Up";
+        return "Warm Up-正常访问";
     }
 
     @GetMapping("/flow/lineUp")
     public String flowLineUp() throws InterruptedException {
         Thread.sleep(500);
-        return "排队等待";
+        return "排队等待-正常访问";
     }
 
     @GetMapping("/flow/association/target")
     public String associationTarget(){
-        return "关联-被限流目标";
+        return "关联-被限流目标-正常访问";
     }
 
     @GetMapping("/flow/association/resource")
     public String associationResource(){
-        return "关联-关联资源";
+        return "关联-关联资源-正常访问";
     }
 
     @SentinelResource("flowLinkResource")
     public String resource(){
-        return "访问资源";
+        return "访问资源-正常访问";
     }
 
     @GetMapping("/flow/link/entry1")
@@ -58,8 +58,8 @@ public class SentinelDemoController {
 
     @GetMapping("/meltdown/rt")
     public String meltdownRt() throws InterruptedException {
-        Thread.sleep(600);
-        return "熔断-rt";
+        Thread.sleep(5000);
+        return "熔断-rt-正常访问";
     }
 
     @GetMapping("/meltdown/ratio")
@@ -67,7 +67,7 @@ public class SentinelDemoController {
         if(3 < random.nextInt(10)){
             int a = 10 / 0;
         }
-        return "熔断-异常比例";
+        return "熔断-异常比例-正常访问";
     }
 
     @GetMapping("/meltdown/count")
@@ -75,7 +75,7 @@ public class SentinelDemoController {
         if(3 < random.nextInt(10)){
             int a = 10 / 0;
         }
-        return "熔断-异常数";
+        return "熔断-异常数-正常访问";
     }
 
     @GetMapping("/hotKey")
@@ -96,10 +96,10 @@ public class SentinelDemoController {
     @SentinelResource(value = "sentinelResource", blockHandler = "sentinelResourceBlockHandler")
     public String sentinelResource(Integer id){
         System.out.println("sentinelResource,快速失败，id：" + id);
-        return "sentinelResource,快速失败，id：" + id;
+        return "sentinelResource,快速失败，id：" + id + "-正常访问";
     }
     public String sentinelResourceBlockHandler(Integer id, BlockException blockException){
-        return "sentinelResource,被限流，id：" + id;
+        return "sentinelResource,被限流，id：" + id + "-BlockHandler";
     }
 
 
@@ -109,7 +109,7 @@ public class SentinelDemoController {
     @GetMapping("/sentinelResource2")
     @SentinelResource(value = "sentinelResource2", blockHandlerClass = SentinelResourceBlockHandlerClass.class,blockHandler = "sentinelResource2BlockHandler")
     public String sentinelResource2(Integer id){
-        return "sentinelResource2,快速失败，id：" + id;
+        return "sentinelResource2,快速失败，id：" + id + "-正常访问";
     }
 
 }

@@ -15,6 +15,6 @@ import com.alibaba.csp.sentinel.slots.block.BlockException;
 public class SentinelResourceBlockHandlerClass {
 
     public static String sentinelResource2BlockHandler(Integer id, BlockException blockException){
-        return "sentinelResource2,被限流，id：" + id;
+        return "sentinelResource2,被限流，id：" + id + "-BlockHandler";
     }
 }
