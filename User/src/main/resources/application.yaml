@@ -1,7 +1,7 @@
 #server:
 #  port: 9003
 #  servlet:
-#    context-path: /user
+#    context-path: /demo_spring_cloud_alibaba/user
 #spring:
 #  application:
 #    name: User

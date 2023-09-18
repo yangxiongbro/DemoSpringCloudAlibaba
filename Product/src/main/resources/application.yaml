@@ -1,7 +1,7 @@
 #server:
 #  port: 9000
 #  servlet:
-#    context-path: /product
+#    context-path: /demo_spring_cloud_alibaba/product
 #spring:
 #  application:
 #    name: Product

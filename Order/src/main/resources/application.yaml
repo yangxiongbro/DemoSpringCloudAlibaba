@@ -1,7 +1,7 @@
 #server:
 #  port: 9006
 #  servlet:
-#    context-path: /order
+#    context-path: /demo_spring_cloud_alibaba/order
 #spring:
 #  application:
 #    name: Order

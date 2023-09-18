@@ -15,10 +15,10 @@
         <version>2.6.9</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
-    <groupId>com.example</groupId>
-    <artifactId>SpringCloudAlibaba</artifactId>
+    <groupId>com.example.demo_apring_cloud_alibaba</groupId>
+    <artifactId>DemoSpringCloudAlibaba</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>SpringCloudAlibaba</name>
+    <name>DemoSpringCloudAlibaba</name>
     <description>Demo project for Spring Cloud Alibaba</description>
     <properties>
         <java.version>8</java.version>

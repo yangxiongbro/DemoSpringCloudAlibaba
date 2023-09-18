@@ -3,13 +3,15 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <parent>
-        <artifactId>SpringCloudAlibaba</artifactId>
-        <groupId>com.example</groupId>
+        <artifactId>DemoSpringCloudAlibaba</artifactId>
+        <groupId>com.example.demo_apring_cloud_alibaba</groupId>
         <version>0.0.1-SNAPSHOT</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
+    <groupId>com.example.demo_apring_cloud_alibaba.user</groupId>
     <artifactId>User</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
 
     <properties>
         <maven.compiler.source>8</maven.compiler.source>
@@ -18,7 +20,7 @@
 
     <dependencies>
         <dependency>
-            <groupId>com.example.common</groupId>
+            <groupId>com.example.demo_apring_cloud_alibaba.common</groupId>
             <artifactId>Common</artifactId>
             <version>0.0.1-SNAPSHOT</version>
         </dependency>
@@ -38,6 +40,12 @@
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-bootstrap</artifactId>
             <version>3.1.6</version>
+        </dependency>
+        <!-- seata 版本与 seata server 版本一致-->
+        <dependency>
+            <groupId>io.seata</groupId>
+            <artifactId>seata-spring-boot-starter</artifactId>
+            <version>1.7.0</version>
         </dependency>
 
     </dependencies>
