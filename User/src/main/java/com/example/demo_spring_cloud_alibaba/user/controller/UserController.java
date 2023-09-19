@@ -3,6 +3,7 @@ package com.example.demo_spring_cloud_alibaba.user.controller;
 import com.example.demo_apring_cloud_alibaba.common.po.user.UserPO;
 import com.example.demo_apring_cloud_alibaba.common.vo.user.UserVO;
 import com.example.demo_spring_cloud_alibaba.user.service.interfaces.IUserService;
+import io.seata.core.context.RootContext;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cloud.context.config.annotation.RefreshScope;
@@ -22,6 +23,7 @@ public class UserController {
 
     @GetMapping("/{id}")
     public UserVO findById(@PathVariable("id") Long id) {
+        System.out.println("seata xid====================>" + RootContext.getXID());
         UserVO userVO = new UserVO();
         UserPO userPO = userService.getById(id);
         if(null != userPO){
@@ -33,6 +35,7 @@ public class UserController {
 
     @PostMapping("/pay/{uid}")
     public UserVO pay(@PathVariable("uid") @NotNull Long uid, @RequestBody @NotNull @DecimalMin("0.01") Double amount){
+        System.out.println("seata xid====================>" + RootContext.getXID());
         return userService.pay(uid, amount);
     }
 }
