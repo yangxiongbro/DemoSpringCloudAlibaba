@@ -6,9 +6,9 @@ spring:
   cloud:
     nacos:
       config:
-        server-addr: 192.168.31.101:8848
+        server-addr: 192.168.31.90:18848
         file-extension: yaml
         namespace: ed2069f3-cc54-4a62-b044-95061643ae84
         group: MY_GROUP
         username: app
-        password: Senna&nacos-app@P1
+        password: Senna&app@P1
