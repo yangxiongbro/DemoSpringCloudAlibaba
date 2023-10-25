@@ -10,6 +10,7 @@ import com.example.demo_spring_cloud_alibaba.order.service.interfaces.IOrderServ
 //import io.swagger.annotations.ApiImplicitParams;
 //import io.swagger.annotations.ApiOperation;
 import io.seata.core.context.RootContext;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cloud.context.config.annotation.RefreshScope;
 import org.springframework.web.bind.annotation.*;
@@ -19,6 +20,7 @@ import javax.validation.Valid;
 @RequestMapping("/")
 @RestController
 @RefreshScope
+@Slf4j
 //@Api(tags = "订单Controller")
 public class OrderController {
     @Autowired
@@ -30,13 +32,13 @@ public class OrderController {
 //            @ApiImplicitParam(name="id", value="订单id", dataType = "Long", paramType = "path")
 //    })
     public OrderVO findById(@PathVariable("id") Long id) {
-        System.out.println("seata xid====================>" + RootContext.getXID());
+        log.info("seata xid ====================> {}", RootContext.getXID());
         return orderService.findById(id);
     }
 
     @PostMapping
     public OrderVO order(@Valid @RequestBody OrderParams params) throws Exception {
-        System.out.println("seata xid====================>" + RootContext.getXID());
+        log.info("seata xid ====================> {}", RootContext.getXID());
         return orderService.order(params);
     }
 
@@ -48,7 +50,7 @@ public class OrderController {
 //            @ApiImplicitParam(name="number", value="商品数量", dataType = "Integer", paramType = "query")
 //    })
     public PairValueVO<UserVO, OrderVO> pay(@PathVariable("oid") Long oid) {
-        System.out.println("seata xid====================>" + RootContext.getXID());
+        log.info("seata xid ====================> {}", RootContext.getXID());
         return orderService.pay(oid);
     }
 }

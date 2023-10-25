@@ -4,6 +4,7 @@ import com.example.demo_apring_cloud_alibaba.common.po.product.ProductPO;
 import com.example.demo_apring_cloud_alibaba.common.vo.product.ProductVO;
 import com.example.demo_spring_cloud_alibaba.product.service.interfaces.IProductService;
 import io.seata.core.context.RootContext;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cloud.context.config.annotation.RefreshScope;
@@ -18,6 +19,7 @@ import java.util.Random;
 @RestController
 @RefreshScope
 @Validated
+@Slf4j
 public class ProductController {
     @Autowired
     private IProductService productService;
@@ -26,7 +28,7 @@ public class ProductController {
 
     @GetMapping("/{id}")
     public ProductVO findById(@PathVariable("id") Long id) throws InterruptedException {
-        System.out.println("seata xid====================>" + RootContext.getXID());
+        log.info("seata xid ====================> {}", RootContext.getXID());
         ProductVO productVO = new ProductVO();
         ProductPO productPO = productService.getById(id);
         if(null != productPO){
@@ -39,7 +41,7 @@ public class ProductController {
 
     @PostMapping("checkout/{pid}")
     public ProductVO checkout(@PathVariable("pid") @NotNull Long pid, @RequestBody @NotNull @Min(1) Integer number) {
-        System.out.println("seata xid====================>" + RootContext.getXID());
+        log.info("seata xid ====================> {}", RootContext.getXID());
         return productService.checkout(pid,number);
     }
 }
