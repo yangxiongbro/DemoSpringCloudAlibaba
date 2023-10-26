@@ -105,6 +105,8 @@
     <springProfile name="!prod">
         <!-- 使用mybatis的时候，sql语句是debug下才会打印 -->
         <logger name="com.richstonedt.cmgde2eas.cs.mapper" level="DEBUG"/>
+        <logger name="org.springframework.web.servlet.RequestDispatcher" level="DEBUG"/>
+        <logger name="org.springframework.cloud.sleuth" level="DEBUG"/>
     </springProfile>
 
     <!-- root节点是必选节点，用来指定最基础的日志输出级别 -->
