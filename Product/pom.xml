@@ -28,10 +28,12 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
+        <!-- 服务发现 -->
         <dependency>
             <groupId>com.alibaba.cloud</groupId>
             <artifactId>spring-cloud-starter-alibaba-nacos-discovery</artifactId>
         </dependency>
+        <!-- 服务配置 -->
         <dependency>
             <groupId>com.alibaba.cloud</groupId>
             <artifactId>spring-cloud-starter-alibaba-nacos-config</artifactId>
@@ -58,10 +60,27 @@
             <version>1.7.0</version>
         </dependency>
         <!-- 链路追踪 -->
+        <!-- sleuth 依赖飘红引不进来，那么原因可能是你使用的 cloud 版本已经移除了 spring-cloud-starter-zipkin -->
         <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-sleuth</artifactId>
             <version>3.1.5</version>
+        </dependency>
+        <!-- zipkin 依赖包含了 sleuth，所以不需要再单独引入 sleuth -->
+        <!-- 有的 spring cloud 版本当中是没有对 spring-cloud-starter-zipkin 进行版本控制的，所以这时候我们需要自己去声明版本号 -->
+        <!--<dependency>-->
+        <!--    <groupId>org.springframework.cloud</groupId>-->
+        <!--    <artifactId>spring-cloud-starter-zipkin</artifactId>-->
+        <!--<version>2.2.8.RELEASE</version>-->
+        <!--</dependency>-->
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-sleuth-zipkin</artifactId>
+            <version>3.1.5</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.amqp</groupId>
+            <artifactId>spring-rabbit</artifactId>
         </dependency>
     </dependencies>
 
