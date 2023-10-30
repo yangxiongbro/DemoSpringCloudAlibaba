@@ -3,5 +3,6 @@
 /Product/target/
 /User/target/
 /.idea/
-/.idea/
 /logs/
+/JavaUtils/target/
+/JavaUtils/.idea/
