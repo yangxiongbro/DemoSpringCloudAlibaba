@@ -4,7 +4,7 @@
     <modelVersion>4.0.0</modelVersion>
     <packaging>pom</packaging>
     <modules>
-        <module>JavaUtils</module>
+        <module>CommonJava</module>
         <module>Common</module>
         <module>Order</module>
         <module>Product</module>
@@ -26,8 +26,8 @@
     </properties>
     <dependencies>
         <dependency>
-            <groupId>com.java.utils</groupId>
-            <artifactId>JavaUtils</artifactId>
+            <groupId>com.common.java</groupId>
+            <artifactId>CommonJava</artifactId>
             <version>1.0</version>
         </dependency>
         <dependency>
