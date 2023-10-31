@@ -13,11 +13,13 @@ import com.example.demo_spring_cloud_alibaba.order.ms.ProductFeignService;
 import com.example.demo_spring_cloud_alibaba.order.ms.UserFeignService;
 import com.example.demo_spring_cloud_alibaba.order.service.interfaces.IOrderService;
 import io.seata.spring.annotation.GlobalTransactional;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
+@Slf4j
 public class OrderService extends ServiceImpl<IOrderMapper, OrderPO> implements IOrderService {
 
     @Autowired
@@ -52,7 +54,7 @@ public class OrderService extends ServiceImpl<IOrderMapper, OrderPO> implements 
             save(orderPO);
             orderVO = findById(orderPO.getId());
         }
-        System.out.println(orderVO);
+        log.info("{}",orderVO);
         return orderVO;
     }
 

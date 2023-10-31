@@ -22,7 +22,9 @@
     <name>DemoSpringCloudAlibaba</name>
     <description>Demo project for Spring Cloud Alibaba</description>
     <properties>
-        <java.version>8</java.version>
+        <maven.compiler.source>17</maven.compiler.source>
+        <maven.compiler.target>17</maven.compiler.target>
+        <java.version>17</java.version>
     </properties>
     <dependencies>
         <dependency>

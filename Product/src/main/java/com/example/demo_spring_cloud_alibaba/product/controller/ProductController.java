@@ -35,7 +35,7 @@ public class ProductController {
             BeanUtils.copyProperties(productPO, productVO);
         }
         Thread.sleep(random.nextInt(1000));
-        System.out.println(productVO);
+        log.info("{}",productVO);
         return productVO;
     }
 

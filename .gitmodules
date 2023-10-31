@@ -2,3 +2,7 @@
 	path = CommonJava
 	url = git@github.com:yangxiongbro/CommonJava.git
 	branch = release-1.0
+[submodule "CommonSpring"]
+	path = CommonSpring
+	url = git@github.com:yangxiongbro/CommonSpring.git
+	branch = release-2.6.9

@@ -3,6 +3,7 @@ package com.example.demo_spring_cloud_alibaba.order.controller;
 import com.alibaba.csp.sentinel.annotation.SentinelResource;
 import com.alibaba.csp.sentinel.slots.block.BlockException;
 import com.example.demo_spring_cloud_alibaba.order.handle.block.SentinelResourceBlockHandlerClass;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -11,6 +12,7 @@ import java.util.Random;
 
 @RequestMapping("/sentinel")
 @RestController
+@Slf4j
 public class SentinelDemoController {
 
     private Random random = new Random();
@@ -95,7 +97,7 @@ public class SentinelDemoController {
     @GetMapping("/sentinelResource")
     @SentinelResource(value = "sentinelResource", blockHandler = "sentinelResourceBlockHandler")
     public String sentinelResource(Integer id){
-        System.out.println("sentinelResource,快速失败，id：" + id);
+        log.info("sentinelResource,快速失败，id：{}");
         return "sentinelResource,快速失败，id：" + id + "-正常访问";
     }
     public String sentinelResourceBlockHandler(Integer id, BlockException blockException){

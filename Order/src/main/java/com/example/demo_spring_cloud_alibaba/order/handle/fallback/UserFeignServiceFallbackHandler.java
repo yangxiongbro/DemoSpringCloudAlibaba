@@ -2,6 +2,7 @@ package com.example.demo_spring_cloud_alibaba.order.handle.fallback;
 
 import com.example.demo_apring_cloud_alibaba.common.vo.user.UserVO;
 import com.example.demo_spring_cloud_alibaba.order.ms.UserFeignService;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
 
 /**
@@ -15,16 +16,17 @@ import org.springframework.stereotype.Component;
  * @since DemoSpringCloudAlibaba 1.0
  */
 @Component
+@Slf4j
 public class UserFeignServiceFallbackHandler implements UserFeignService {
     @Override
     public UserVO findById(Long id) {
-        System.out.println("UserFeignServiceFallback");
+        log.info("UserFeignServiceFallbackHandler#findById fallback, id:{}", id);
         return null;
     }
 
     @Override
     public UserVO pay(Long id, Double amount) {
-        System.out.println("UserFeignServiceFallback");
+        log.info("UserFeignServiceFallbackHandler#pay fallback, id:{}, amount:{}", id, amount);
         return null;
     }
 }

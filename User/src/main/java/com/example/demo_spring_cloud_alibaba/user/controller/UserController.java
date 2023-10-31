@@ -31,7 +31,7 @@ public class UserController {
         if(null != userPO){
             BeanUtils.copyProperties(userPO, userVO);
         }
-        System.out.println(userVO);
+        log.info("{}",userVO);
         return userVO;
     }
 
