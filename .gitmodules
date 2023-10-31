@@ -1,4 +1,0 @@
-[submodule "JavaUtils"]
-	path = JavaUtils
-	url = git@github.com:yangxiongbro/JavaUtils.git
-	branch = release-1.0
