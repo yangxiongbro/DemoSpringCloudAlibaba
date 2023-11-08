@@ -1,5 +1,8 @@
 package com.example.demo_spring_cloud_alibaba.order.controller;
 
+import com.common.java.exception.base.BaseException;
+import com.common.java.response.BaseResponse;
+import com.common.java.response.R;
 import com.example.demo_apring_cloud_alibaba.common.params.order.OrderParams;
 import com.example.demo_apring_cloud_alibaba.common.vo.PairValueVO;
 import com.example.demo_apring_cloud_alibaba.common.vo.order.OrderVO;
@@ -31,15 +34,15 @@ public class OrderController {
 //    @ApiImplicitParams({
 //            @ApiImplicitParam(name="id", value="订单id", dataType = "Long", paramType = "path")
 //    })
-    public OrderVO findById(@PathVariable("id") Long id) {
+    public BaseResponse findById(@PathVariable("id") Long id) {
         log.info("seata xid ====================> {}", RootContext.getXID());
-        return orderService.findById(id);
+        return new R<>(orderService.findById(id));
     }
 
     @PostMapping
-    public OrderVO order(@Valid @RequestBody OrderParams params) throws Exception {
+    public BaseResponse order(@Valid @RequestBody OrderParams params) throws BaseException {
         log.info("seata xid ====================> {}", RootContext.getXID());
-        return orderService.order(params);
+        return new R<>(orderService.order(params));
     }
 
     @PostMapping("/pay/{oid}")
@@ -49,8 +52,8 @@ public class OrderController {
 //            @ApiImplicitParam(name="pid", value="商品id", dataType = "Long", paramType = "query"),
 //            @ApiImplicitParam(name="number", value="商品数量", dataType = "Integer", paramType = "query")
 //    })
-    public PairValueVO<UserVO, OrderVO> pay(@PathVariable("oid") Long oid) {
+    public BaseResponse pay(@PathVariable("oid") Long oid) throws BaseException {
         log.info("seata xid ====================> {}", RootContext.getXID());
-        return orderService.pay(oid);
+        return new R<>(orderService.pay(oid));
     }
 }

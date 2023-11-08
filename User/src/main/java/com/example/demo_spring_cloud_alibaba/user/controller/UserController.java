@@ -1,5 +1,7 @@
 package com.example.demo_spring_cloud_alibaba.user.controller;
 
+import com.common.java.response.BaseResponse;
+import com.common.java.response.R;
 import com.example.demo_apring_cloud_alibaba.common.po.user.UserPO;
 import com.example.demo_apring_cloud_alibaba.common.vo.user.UserVO;
 import com.example.demo_spring_cloud_alibaba.user.service.interfaces.IUserService;
@@ -24,7 +26,7 @@ public class UserController {
     private IUserService userService;
 
     @GetMapping("/{id}")
-    public UserVO findById(@PathVariable("id") Long id) {
+    public BaseResponse findById(@PathVariable("id") Long id) {
         log.info("seata xid ====================> {}", RootContext.getXID());
         UserVO userVO = new UserVO();
         UserPO userPO = userService.getById(id);
@@ -32,12 +34,12 @@ public class UserController {
             BeanUtils.copyProperties(userPO, userVO);
         }
         log.info("{}",userVO);
-        return userVO;
+        return new R<>(userVO);
     }
 
     @PostMapping("/pay/{uid}")
-    public UserVO pay(@PathVariable("uid") @NotNull Long uid, @RequestBody @NotNull @DecimalMin("0.01") Double amount){
+    public BaseResponse pay(@PathVariable("uid") @NotNull Long uid, @RequestBody @NotNull @DecimalMin("0.01") Double amount){
         log.info("seata xid ====================> {}", RootContext.getXID());
-        return userService.pay(uid, amount);
+        return new R<>(userService.pay(uid, amount));
     }
 }

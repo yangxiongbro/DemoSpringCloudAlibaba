@@ -1,5 +1,7 @@
 package com.example.demo_spring_cloud_alibaba.product.controller;
 
+import com.common.java.response.BaseResponse;
+import com.common.java.response.R;
 import com.example.demo_apring_cloud_alibaba.common.po.product.ProductPO;
 import com.example.demo_apring_cloud_alibaba.common.vo.product.ProductVO;
 import com.example.demo_spring_cloud_alibaba.product.service.interfaces.IProductService;
@@ -27,7 +29,7 @@ public class ProductController {
     private Random random = new Random();
 
     @GetMapping("/{id}")
-    public ProductVO findById(@PathVariable("id") Long id) throws InterruptedException {
+    public BaseResponse findById(@PathVariable("id") Long id) throws InterruptedException {
         log.info("seata xid ====================> {}", RootContext.getXID());
         ProductVO productVO = new ProductVO();
         ProductPO productPO = productService.getById(id);
@@ -36,12 +38,12 @@ public class ProductController {
         }
         Thread.sleep(random.nextInt(1000));
         log.info("{}",productVO);
-        return productVO;
+        return new R<>(productVO);
     }
 
     @PostMapping("checkout/{pid}")
-    public ProductVO checkout(@PathVariable("pid") @NotNull Long pid, @RequestBody @NotNull @Min(1) Integer number) {
+    public BaseResponse checkout(@PathVariable("pid") @NotNull Long pid, @RequestBody @NotNull @Min(1) Integer number) {
         log.info("seata xid ====================> {}", RootContext.getXID());
-        return productService.checkout(pid,number);
+        return new R<>(productService.checkout(pid,number));
     }
 }
