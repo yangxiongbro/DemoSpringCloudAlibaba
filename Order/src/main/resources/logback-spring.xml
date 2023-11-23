@@ -29,7 +29,8 @@
     <!-- %msg 日志消息 -->
     <!-- %n 平台的换行符 -->
     <property name="CONSOLE_LOG_PATTERN" value="${CONSOLE_LOG_PATTERN:-%clr(%d{yyyy-MM-dd HH:mm:ss.SSS}){faint} %clr(${LOG_LEVEL_PATTERN:-%5p}) %clr(${PID:- }){magenta} %clr(---){faint} %clr([%15.15t]){faint} %clr(%-40.40logger{39}){cyan} %clr(:){faint} %m%n${LOG_EXCEPTION_CONVERSION_WORD:-%wEx}}"/>
-    <property name="FILE_LOG_PATTERN" value="%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{50} - %msg%n" />
+<!--    <property name="FILE_LOG_PATTERN" value="%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{50} - %msg%n" />-->
+    <property name="FILE_LOG_PATTERN" value="%d{yyyy-MM-dd HH:mm:ss.SSS} ${LOG_LEVEL_PATTERN:-%5p} ${PID:- } --- [%15.15t] %-40.40logger{39} : %m%n${LOG_EXCEPTION_CONVERSION_WORD:-%wEx}"/>
 
     <!--1. 输出到控制台-->
     <!--此日志appender是为开发使用，只配置最底级别-->
@@ -104,7 +105,7 @@
     <!-- 开发环境-->
     <springProfile name="!prod">
         <!-- 使用mybatis的时候，sql语句是debug下才会打印 -->
-        <logger name="com.richstonedt.cmgde2eas.cs.mapper" level="DEBUG"/>
+        <logger name="com.example.demo_spring_cloud_alibaba.order.mapper" level="DEBUG"/>
     </springProfile>
 
     <!-- root节点是必选节点，用来指定最基础的日志输出级别 -->
