@@ -1,8 +1,8 @@
 package com.example.demo_spring_cloud_alibaba.product.service.interfaces;
 
 import com.baomidou.mybatisplus.extension.service.IService;
-import com.example.demo_apring_cloud_alibaba.common.po.product.ProductPO;
-import com.example.demo_apring_cloud_alibaba.common.vo.product.ProductVO;
+import com.example.demo_spring_cloud_alibaba.common.po.product.ProductPO;
+import com.example.demo_spring_cloud_alibaba.common.vo.product.ProductVO;
 
 public interface IProductService extends IService<ProductPO> {
 

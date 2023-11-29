@@ -4,12 +4,12 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <parent>
         <artifactId>DemoSpringCloudAlibaba</artifactId>
-        <groupId>com.example.demo_apring_cloud_alibaba</groupId>
+        <groupId>com.example.demo_spring_cloud_alibaba</groupId>
         <version>0.0.1-SNAPSHOT</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.example.demo_apring_cloud_alibaba.common</groupId>
+    <groupId>com.example.demo_spring_cloud_alibaba.common</groupId>
     <artifactId>Common</artifactId>
     <version>0.0.1-SNAPSHOT</version>
 

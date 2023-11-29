@@ -2,8 +2,8 @@ package com.example.demo_spring_cloud_alibaba.user.controller;
 
 import com.common.java.response.BaseResponse;
 import com.common.java.response.R;
-import com.example.demo_apring_cloud_alibaba.common.po.user.UserPO;
-import com.example.demo_apring_cloud_alibaba.common.vo.user.UserVO;
+import com.example.demo_spring_cloud_alibaba.common.po.user.UserPO;
+import com.example.demo_spring_cloud_alibaba.common.vo.user.UserVO;
 import com.example.demo_spring_cloud_alibaba.user.service.interfaces.IUserService;
 import io.seata.core.context.RootContext;
 import lombok.extern.slf4j.Slf4j;

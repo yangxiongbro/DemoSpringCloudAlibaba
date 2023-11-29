@@ -9,6 +9,7 @@
         <module>Order</module>
         <module>Product</module>
         <module>User</module>
+        <module>SCG</module>
     </modules>
     <parent>
         <groupId>org.springframework.boot</groupId>
@@ -16,7 +17,7 @@
         <version>2.6.9</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
-    <groupId>com.example.demo_apring_cloud_alibaba</groupId>
+    <groupId>com.example.demo_spring_cloud_alibaba</groupId>
     <artifactId>DemoSpringCloudAlibaba</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>DemoSpringCloudAlibaba</name>

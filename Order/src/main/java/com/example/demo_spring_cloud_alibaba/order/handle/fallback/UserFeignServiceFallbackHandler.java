@@ -1,7 +1,7 @@
 package com.example.demo_spring_cloud_alibaba.order.handle.fallback;
 
 import com.common.java.response.R;
-import com.example.demo_apring_cloud_alibaba.common.vo.user.UserVO;
+import com.example.demo_spring_cloud_alibaba.common.vo.user.UserVO;
 import com.example.demo_spring_cloud_alibaba.order.ms.UserFeignService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
