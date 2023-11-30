@@ -29,6 +29,30 @@
             <artifactId>spring-cloud-starter-gateway</artifactId>
             <version>3.1.9</version>
         </dependency>
+        <!--
+            注意 SpringCloud Gateway 使用的 web 框架为 webflux，和 SpringMVC 不兼容。引入的限流组件是 hystrix。redis 底层不再使用jedis，而是lettuce。
+            所以 SCG 不需要下面两个依赖，并把他们从父工程移除，移到需要的子工程
+        -->
+        <!-- <dependency> -->
+        <!--     <groupId>org.springframework.boot</groupId> -->
+        <!--     <artifactId>spring-boot-starter-web</artifactId> -->
+        <!-- </dependency> -->
+        <!-- <dependency> -->
+        <!--     <groupId>org.springframework.boot</groupId> -->
+        <!--     <artifactId>spring-boot-starter-tomcat</artifactId> -->
+        <!--     <scope>provided</scope> -->
+        <!-- </dependency> -->
+        <!--open feign-->
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-loadbalancer</artifactId>
+            <version>3.1.6</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-openfeign</artifactId>
+            <version>3.1.7</version>
+        </dependency>
         <!-- 服务发现 -->
         <dependency>
             <groupId>com.alibaba.cloud</groupId>

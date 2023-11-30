@@ -106,6 +106,8 @@
         <!-- 使用mybatis的时候，sql语句是debug下才会打印 -->
         <logger name="com.example.demo_spring_cloud_alibaba.order.mapper" level="DEBUG"/>
     </springProfile>
+    <!-- Feign 调试日志是 debug 级别输出，SpringBoot 默认日志级别是 info，所以 Feign 的 debug 日志级别就不会输出 -->
+    <logger name="com.example.demo_spring_cloud_alibaba.order.ms" level="DEBUG"/>
 
     <!-- root节点是必选节点，用来指定最基础的日志输出级别 -->
     <!-- level:默认是DEBUG -->
